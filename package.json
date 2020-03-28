@@ -1,0 +1,53 @@
+{
+  "name": "eugene-course-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run api & npm run ws",
+    "api": "NODE_ENV=development nodemon ./src/entry.js",
+    "ws": "NODE_ENV=development nodemon ./src/websockets.worker.js",
+    "prod": "NODE_ENV=production nodemon ./src/entry.js",
+    "docs": "apidoc -i src/ -o ./public/docs/ -t template/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dugnist/eugene-course-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dugnist/eugene-course-nodejs/issues"
+  },
+  "apidoc": {
+    "name": "Calendar",
+    "version": "0.0.1",
+    "description": "Calendar API Documentation",
+    "apidoc": {
+      "title": "API Calendar",
+      "url": "https://calendar.example"
+    }
+  },
+  "homepage": "https://github.com/Dugnist/eugene-course-nodejs#readme",
+  "dependencies": {
+    "apidoc": "^0.17.7",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "eslint": "^6.0.1",
+    "eslint-config-google": "^0.13.0",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.6.6",
+    "nanoid": "^2.0.3",
+    "node-fetch": "^2.6.0",
+    "node-schedule": "^1.3.2",
+    "node-telegram-bot-api": "^0.30.0",
+    "nodemon": "^1.19.1",
+    "socket.io": "^2.2.0"
+  }
+}

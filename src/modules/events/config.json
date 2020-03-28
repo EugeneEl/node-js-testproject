@@ -1,0 +1,66 @@
+{
+  "routes": {
+    "events_get": {
+      "model": "events",
+      "path": "/events",
+      "method": "get",
+      "controller": "get_events",
+      "middlewares": ["authverify"],
+      "validation": {}
+    },
+    "post_event": {
+      "model": "events",
+      "path": "/events",
+      "method": "post",
+      "controller": "post_event",
+      "middlewares": ["authverify", "authverify"],
+      "validation": {
+        "required": ["name", "eventDescription", "startDate", "endDate"],
+        "optional": [],
+        "sources": ["body"]
+      }
+    },
+    "event_update": {
+      "model": "events",
+      "path": "/events/:id",
+      "method": "put",
+      "controller": "update_event",
+      "middlewares": ["authverify", "validation"],
+      "validation": {
+        "required": ["id", "startDate", "endDate", "eventDescription", "name"],
+        "optional": [],
+        "sources": ["body", "params"]
+      }
+    },
+    "event_delete": {
+      "model": "events",
+      "path": "/events/:id",
+      "method": "delete",
+      "controller": "delete_event",
+      "middlewares": ["authverify", "validation"],
+      "validation": {
+        "required": ["id"],
+        "optional": [],
+        "sources": ["params"]
+      }
+    },
+    "event_delete_all": {
+      "model": "events",
+      "path": "/events",
+      "method": "delete",
+      "controller": "event_delete_all",
+      "middlewares": ["authverify"]
+    },
+    "event_get": {
+      "model": "events",
+      "path": "/events/:id",
+      "method": "get",
+      "controller": "get_event",
+      "middlewares": ["validation", "authverify"],
+      "validation": {
+        "required": ["id"],
+        "sources": ["params"]
+      }
+    }
+  }
+}

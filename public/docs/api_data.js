@@ -1,0 +1,70 @@
+define({ "api": [
+  {
+    "type": "get",
+    "url": "https://localhost:8000/api/users/:id",
+    "title": "Get user by id",
+    "name": "Get_user_by_id",
+    "group": "User",
+    "version": "0.0.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>User id.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "fetch('https://localhost:8000/api/users/:id')\n    .then(r => r.json())\n    .then(data => console.log(data));",
+        "type": "curl"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "uid",
+            "description": "<p>User identificator.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User acess token.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Something went wrong.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>Wrong account id.</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/modules/users/docs.js",
+    "groupTitle": "User"
+  }
+] });

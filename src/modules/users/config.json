@@ -1,0 +1,64 @@
+{
+  "routes": {
+    "user_auth": {
+      "model": "users",
+      "path": "/users/auth",
+      "method": "post",
+      "controller": "auth",
+      "middlewares": ["validation"],
+      "validation": {
+        "required": ["email", "password"],
+        "optional": ["name"],
+        "sources": ["body"]
+      }
+    },
+    "user_register": {
+      "model": "users",
+      "path": "/users/register",
+      "method": "post",
+      "controller": "register",
+      "middlewares": ["validation"],
+      "validation": {
+        "required": ["email", "password"],
+        "optional": ["name"],
+        "sources": ["body"]
+      }
+    },
+    "user_update": {
+      "model": "users",
+      "path": "/users/:id",
+      "method": "put",
+      "controller": "update_user",
+      "middlewares": ["validation", "authverify"],
+      "validation": {
+        "optional": [
+          "name", "id", "email", "connectToTelegramID", "gender",
+          "country", "city", "phone", "description"
+        ],
+        "sources": ["body"]
+      }
+    },
+    "user_delete": {
+      "model": "users",
+      "path": "/users/:id",
+      "method": "delete",
+      "controller": "delete_user",
+      "middlewares": ["validation", "authverify"],
+      "validation": {
+        "required": ["id"],
+        "sources": ["params"]
+      }
+    },
+    "user_get": {
+      "model": "users",
+      "path": "/users/:id",
+      "method": "get",
+      "controller": "get_user",
+      "middlewares": ["validation", "authverify"],
+      "validation": {
+        "required": ["id"],
+        "sources": ["params"]
+      }
+    }
+  }
+}
